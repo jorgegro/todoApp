@@ -1,25 +1,36 @@
-<section class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <h2 class="text-center">{{ name }}'s Todo List</h2>
-    </div>
-  </div>
-  <div class="container input-container">
+<div class=" backgroundPage">
+
+  <section class="container-fluid">
     <div class="row">
       <div class="col">
-        <div class="input-group mb-3">
-          <input [(ngModel)]="todoInput" (keyup.enter)="addTodo()" type="text" class="form-control barTodo" placeholder="" aria-label="" aria-describedby="basic-addon1">
+        <h2 class="text-center pt-5 pb-3 topFont">To do App</h2>
+      </div>
+    </div>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <div class="input-group my-4">
+            <input [(ngModel)]="todoInput" (keyup.enter)="addTodo()" type="text" class="form-control barTodo input-container" placeholder=""
+              aria-label="" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div *ngFor="let chore of array.reverse()" class="paperBackground">
+            <!-- <i (click)="switch-tag()" class="fas fa-pencil"></i> -->
+            <!-- <div ng-switch=""> -->
+            <!-- <i (click)="taskComplete(chore.done)" class="fas fa-facebook"></i> -->
+            <!-- <p *ngSwitchCase="switch.on" class="m-2 input-task"type='text' [(ngModel)]="chore.name"></p> -->
+            <input style [ngStyle]="{'color': done ? 'red' : 'none'}" class="m-2 input-task todoFont" type='text' [(ngModel)]="chore.name"
+              (keyup.enter)="editTodo(chore)">
+            <!-- </div> -->
+            <i (click)="deleteTodo(chore)" class="fas fa-trash-alt"></i>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div>
-      <p *ngFor="let chore of array">
-        {{ chore }}
-        <i (click)="editTodo(chore)" class="fas fa-anchor"></i>
-      </p>
-    </div>
-  </div>
 
 
-</section>
+  </section>
+</div>
