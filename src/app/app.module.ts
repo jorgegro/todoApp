@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-// import { NgSwitch } from '@angular/common';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -10,13 +10,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
-    // NgSwitch
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-
 
 export class AppModule { 
 }

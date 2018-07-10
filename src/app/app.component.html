@@ -10,19 +10,18 @@
       <div class="row">
         <div class="col">
           <div class="input-group my-4">
+              <i class="fas fa-check-double pr-3 fa-3x" (click)="checkAlltodo()" ></i>
             <input [(ngModel)]="todoInput" (keyup.enter)="addTodo()" type="text" class="form-control barTodo input-container" placeholder=""
               aria-label="" aria-describedby="basic-addon1">
+              <i class="fas fa-eraser pl-3 fa-3x" (click)="deleteAlltodo()"></i>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div *ngFor="let chore of array.reverse()" class="paperBackground">
-            <!-- <i (click)="switch-tag()" class="fas fa-pencil"></i> -->
-            <!-- <div ng-switch=""> -->
-            <!-- <i (click)="taskComplete(chore.done)" class="fas fa-facebook"></i> -->
-            <!-- <p *ngSwitchCase="switch.on" class="m-2 input-task"type='text' [(ngModel)]="chore.name"></p> -->
-            <input style [ngStyle]="{'color': done ? 'red' : 'none'}" class="m-2 input-task todoFont" type='text' [(ngModel)]="chore.name"
+              <i [ngStyle]="{'color': chore.done ? 'green' : 'black'}" (click)="completedTodo(chore)"class="fas fa-check"></i>
+            <input [ngStyle]="{'text-decoration': chore.done ? 'line-through': 'none'}" class="m-2 input-task todoFont text-center" type='text' [(ngModel)]="chore.name"
               (keyup.enter)="editTodo(chore)">
             <!-- </div> -->
             <i (click)="deleteTodo(chore)" class="fas fa-trash-alt"></i>
