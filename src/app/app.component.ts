@@ -46,10 +46,10 @@ export class AppComponent {
     }
   }
 
-  addTodo(chore) {
+  addTodo() {
     let trimmedInput = this.todoInput.trim();
     if (trimmedInput != "") {
-      this.array.push(
+      this.array.unshift(
         {
           name: this.todoInput,
           done: false

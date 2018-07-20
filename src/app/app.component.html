@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <div *ngFor="let chore of array.reverse()" class="paperBackground">
+          <div *ngFor="let chore of array" class="paperBackground">
               <i [ngStyle]="{'color': chore.done ? 'green' : 'black'}" (click)="completedTodo(chore)"class="fas fa-check fa-2x"></i>
             <input [ngStyle]="{'text-decoration': chore.done ? 'line-through': 'none'}" class="m-2 input-task todoFont text-center" type='text' [(ngModel)]="chore.name"
               (keyup.enter)="editTodo(chore)">
